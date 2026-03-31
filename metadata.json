@@ -1,0 +1,5 @@
+{
+  "name": "Zen Markdown Reader",
+  "description": "A beautiful and minimalist Markdown reader with file upload and live preview capabilities.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-900 font-sans antialiased;
+  }
+}
+
+/* Markdown Styles */
+.markdown-body {
+  @apply prose prose-zinc max-w-none selection:bg-zinc-900 selection:text-white;
+}
+
+.markdown-body h1 {
+  @apply text-5xl font-serif font-bold mb-12 mt-16 tracking-tight leading-tight text-zinc-900;
+}
+
+.markdown-body h2 {
+  @apply text-3xl font-serif font-semibold mb-6 mt-14 border-b border-zinc-100 pb-4 text-zinc-800;
+}
+
+.markdown-body h3 {
+  @apply text-xl font-sans font-bold mb-4 mt-10 text-zinc-800 uppercase tracking-wider;
+}
+
+.markdown-body p {
+  @apply leading-8 mb-6 text-zinc-700 text-lg;
+}
+
+.markdown-body pre {
+  @apply bg-zinc-900 text-zinc-100 p-6 rounded-2xl overflow-x-auto my-8 shadow-2xl border border-zinc-800;
+}
+
+.markdown-body code {
+  @apply font-mono text-[0.9em] bg-zinc-100 px-2 py-0.5 rounded-md border border-zinc-200 text-zinc-800;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent p-0 border-none text-zinc-100 text-[0.85em] leading-relaxed;
+}
+
+.markdown-body ul, .markdown-body ol {
+  @apply mb-8 pl-8 space-y-3;
+}
+
+.markdown-body li {
+  @apply text-zinc-700 text-lg leading-relaxed;
+}
+
+.markdown-body blockquote {
+  @apply border-l-8 border-zinc-900 pl-8 italic text-zinc-600 my-10 text-xl font-serif leading-relaxed bg-zinc-50 py-4 pr-4 rounded-r-xl;
+}
+
+.markdown-body hr {
+  @apply my-16 border-zinc-200;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse my-12 shadow-sm rounded-xl overflow-hidden;
+}
+
+.markdown-body th, .markdown-body td {
+  @apply border border-zinc-100 p-4 text-left;
+}
+
+.markdown-body th {
+  @apply bg-zinc-50 font-bold text-zinc-900;
+}
+
+.markdown-body img {
+  @apply rounded-3xl shadow-2xl my-12 mx-auto transition-transform hover:scale-[1.02] duration-500;
+}
+
+.markdown-body a {
+  @apply text-zinc-900 underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-900 transition-all font-medium;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.markdown-body > * {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 rounded-full hover:bg-zinc-400 transition-colors;
+}
